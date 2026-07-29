@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Girlfriend Day 🌻</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Music -->
+<audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Sunset -->
+<div class="sunset"></div>
+
+<!-- Petals -->
+<div id="petals"></div>
+
+<!-- Sparkles -->
+<div id="sparkles"></div>
+
+<div class="card">
+
+<h1>🌻 Happy Girlfriend Day 🌻</h1>
+
+<p id="typewriter"></p>
+
+<button id="nextBtn" onclick="window.location.href='certificate.html'">
+🌻 View Your Certificate
+</button>
+
+</div>
+
+<script>
+
+const poem =
+`Like a sunflower follows the sun,
+My heart always finds its way to you.
+
+Your smile brightens my darkest days,
+Your love gives my life its golden hue.
+
+Thank you for being my safe place,
+My happiness, my best friend too.
+
+Happy Girlfriend Day, my love. 💛🌻`;
+
+let i = 0;
+const speed = 45;
+
+function typeWriter(){
+
+    if(i < poem.length){
+
+        document.getElementById("typewriter").innerHTML += poem.charAt(i);
+
+        i++;
+
+        setTimeout(typeWriter, speed);
+
+    }
+    else{
+
+        document.getElementById("nextBtn").style.display = "inline-block";
+
+    }
+
+}
+
+window.onload = typeWriter;
+
+</script>
+
+</body>
+</html>
