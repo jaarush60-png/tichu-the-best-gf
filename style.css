@@ -122,8 +122,13 @@ line-height:1.8;
 
 color:#5a4200;
 
-white-space:pre-line;
+}
 
+/* Apply pre-line only to typewriter text so it doesn't mess up ordinary paragraphs */
+#typewriter {
+white-space: pre-line;
+font-size: 20px;
+min-height: 260px;
 }
 
 /* Password Box */
@@ -208,13 +213,27 @@ z-index:2;
 
 padding:20px;
 
+width: 100%;
+
+display: flex;
+
+flex-direction: column;
+
+align-items: center;
+
 }
 
 .certificate{
 
 width:90%;
 
-max-width:650px;
+max-width:550px;
+
+height: auto;
+
+display: block;
+
+margin: 15px auto;
 
 border-radius:20px;
 
@@ -246,19 +265,11 @@ opacity:1;
 
 .caption{
 
-margin-top:25px;
+margin-top:20px;
 
-font-size:20px;
+font-size:18px;
 
-}
-
-/* Typewriter */
-
-#typewriter{
-
-font-size:20px;
-
-min-height:260px;
+max-width: 500px;
 
 }
 
