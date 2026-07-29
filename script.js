@@ -143,3 +143,32 @@ window.onload = function () {
     }, 100);
 
 };
+
+// ------------------------------
+// PERSISTENT BACKGROUND MUSIC
+// ------------------------------
+
+document.addEventListener("DOMContentLoaded", () => {
+    const audio = document.getElementById("bg-music");
+
+    if (audio) {
+
+        // Restore playback position
+        const savedTime = localStorage.getItem("audioCurrentTime");
+        if (savedTime) {
+            audio.currentTime = parseFloat(savedTime);
+        }
+
+        // Try playing audio automatically
+        audio.play().catch(() => {
+            // Browsers sometimes block autoplay until a user clicks on the page
+            document.addEventListener("click", () => audio.play(), { once: true });
+        });
+
+        // Continuously update saved time in local storage
+        audio.addEventListener("timeupdate", () => {
+            localStorage.setItem("audioCurrentTime", audio.currentTime);
+        });
+
+    }
+});
