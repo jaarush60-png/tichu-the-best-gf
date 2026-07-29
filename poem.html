@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Girlfriend Day 🌻</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Girlfriend Day 🌻</title>
 
-<link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- Music -->
-<audio autoplay loop>
+<!-- Music with ID added -->
+<audio id="bg-music" autoplay loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
@@ -27,20 +26,18 @@
 <div id="sparkles"></div>
 
 <div class="card">
+    <h1>🌻 Happy Girlfriend Day 🌻</h1>
 
-<h1>🌻 Happy Girlfriend Day 🌻</h1>
+    <p id="typewriter"></p>
 
-<p id="typewriter"></p>
-
-<button id="nextBtn" onclick="window.location.href='certificate.html'">
-🌻 View Your Certificate
-</button>
-
+    <!-- Single Certificate Button (hidden until typing completes) -->
+    <button id="nextBtn" style="display: none;" onclick="window.location.href='certificate.html'">
+        🌻 View Your Certificate
+    </button>
 </div>
 
 <script src="script.js"></script>
 <script>
-
 const poem =
 `Like a sunflower follows the sun,
 My heart always finds its way to you.
@@ -57,29 +54,19 @@ let i = 0;
 const speed = 45;
 
 function typeWriter(){
-
     if(i < poem.length){
-
-        document.getElementById("typewriter").innerHTML += poem.charAt(i);
-
+        // Preserve line breaks properly
+        const char = poem.charAt(i);
+        document.getElementById("typewriter").innerHTML += (char === '\n') ? '<br>' : char;
         i++;
-
         setTimeout(typeWriter, speed);
-
-    }
-    else{
-
+    } else {
         document.getElementById("nextBtn").style.display = "inline-block";
-
     }
-
 }
 
 window.onload = typeWriter;
-
 </script>
-<a href="certificate.html">
-    <button>🌻 Open Your Certificate 🌻</button>
-</a>
+
 </body>
 </html>
